@@ -268,6 +268,7 @@ define PYTHON3_CREATE_PYC_FILES
 		$(PYTHON3_DIR)/Lib/compileall.py \
 		$(if $(VERBOSE),,-q) \
 		$(if $(BR2_PACKAGE_PYTHON3_PYC_ONLY),-b) \
+		-f --invalidation-mode=checked-hash \
 		-s $(TARGET_DIR) \
 		-p / \
 		$(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR)
@@ -284,7 +285,9 @@ define PYTHON3_REMOVE_PY_FILES
 		-print0 | \
 		xargs -0 --no-run-if-empty rm -f
 endef
-PYTHON3_TARGET_FINALIZE_HOOKS += PYTHON3_REMOVE_PY_FILES
+# Comment out PYTHON3_REMOVE_PY_FILES Hook
+# Instead handle in post-build.sh script
+# PYTHON3_TARGET_FINALIZE_HOOKS += PYTHON3_REMOVE_PY_FILES
 endif
 
 # Normally, *.pyc files should not have been compiled, but just in

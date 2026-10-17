@@ -5,8 +5,9 @@
 ################################################################################
 
 LIBQRENCODE_VERSION = 4.1.1
-LIBQRENCODE_SOURCE = qrencode-$(LIBQRENCODE_VERSION).tar.gz
-LIBQRENCODE_SITE = http://fukuchi.org/works/qrencode
+LIBQRENCODE_SOURCE = v$(LIBQRENCODE_VERSION).tar.gz
+LIBQRENCODE_SITE = https://github.com/fukuchi/libqrencode/archive/refs/tags
+LIBQRENCODE_AUTORECONF = YES
 LIBQRENCODE_DEPENDENCIES = host-pkgconf
 LIBQRENCODE_INSTALL_STAGING = YES
 LIBQRENCODE_LICENSE = LGPL-2.1+
